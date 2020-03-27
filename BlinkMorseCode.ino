@@ -1,3 +1,5 @@
+/* For the code on the particle IDE go to
+https://build.particle.io/build/5e7bee29e7ae4600079e09f9*/
 using namespace std;
 
 const int led1 = D7;
@@ -13,9 +15,9 @@ const int dot = 1*timeUnit,
 const char letters[27] = { ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o','p', 'q', 'r',
                             's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
-const string morseLetters[27] = { " ", ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", 
-                                "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--",
-                                "--.."};
+const string morseLetters[27] = { "3", "01", "100", "1010", "100", "0", "0010", "110", "0000", "00", "0111", "101", "0100", 
+                                "11", "10", "111", "0110", "1101", "010", "000", "1", "001", "0001", "011", "1001", "1011",
+                                "1100"};
 
 //put lowercase text into input that you want to translate to morse code
 string input = "tripcony";
@@ -32,7 +34,7 @@ void setup()
             if (input[i] == letters[j])
             {
                 morseCode += morseLetters[j];
-                morseCode += "_";
+                morseCode += "2";
             }
         }
     }
@@ -46,10 +48,10 @@ void loop()
         char symbol = morseCode[i];
         switch (symbol)
         {
-            case '.': ledDot(); break;
-            case '-': ledDash(); break;
-            case '_': delay(letterSpace); break;
-            case ' ': delay(wordSpace); break;
+            case '0': ledDot(); break;
+            case '1': ledDash(); break;
+            case '2': delay(letterSpace); break;
+            case '3': delay(wordSpace); break;
             default: ledError();
         }
     }
